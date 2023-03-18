@@ -10,24 +10,23 @@ const getsendMessage = async(req, res)=>{
   if (!getMessage){
       return res.json({
       msg: 'No se puedo Visualizar Mensajes',
-   });      
+  });      
   }else{
     return res.json({
       msg: 'Chats',
       chats:getMessage
     });      
- }
+}
 
 }
 
 const sendMessage = async(req, res)=>{
   const message = req.body
   const saveMessage = await Chats.sendMessage(message)
- 
   if (!saveMessage){
     return res.json({
       msg: 'No se puedo enviar Mensaje',
-   });      
+  });      
   }else{
       emitMessage(saveMessage)     
       return res.json({
@@ -45,15 +44,14 @@ const deleteMessage = async (req, res)=>{
   if (!deleteMessaje){
       return res.json({
       msg: 'No se pudo eliminar',
-   });      
+  });      
   }else{
     emitDeleteMj(deleteMessaje)
     return res.json({
       msg: 'Mensaje Eliminado',
       chats:deleteMessaje
     });      
- }
-
+}
 }
 
 

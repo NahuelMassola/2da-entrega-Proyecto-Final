@@ -3,6 +3,7 @@ const buttonPrev = document.getElementById('prev');
 const page = document.getElementById('page').innerText;
 
 
+
 buttonNext.addEventListener('click', () => {
    window.location.replace(`/products/?page=${parseInt(page)+1}`)
 });
@@ -10,3 +11,4 @@ buttonNext.addEventListener('click', () => {
 buttonPrev.addEventListener('click', () => {
    window.location.replace(`/products/?page=${parseInt(page)-1}`)
 });
+

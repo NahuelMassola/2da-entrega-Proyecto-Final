@@ -34,14 +34,6 @@ const getProductIdBd = async (req, res) => {
       playload: "error al obtener el producto",
     })
   }
-
-
-
-
-
-
-
-
 }
 
 const addProductBd = async (req, res) => {
@@ -59,9 +51,6 @@ const addProductBd = async (req, res) => {
     })
   }
 }
-
-
-
 
 const UpdateProductBd = async (req, res) => {
   

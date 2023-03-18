@@ -14,16 +14,16 @@ const RealTimeProduct = async (req, res) =>{
     res.render('realTimeProducts')
 }
 
- const deleteRealTimeProduct = async (req, res) =>{
-   const id = +req.params.pid 
-   const Delete = await Product.deleteProduct (id);
-   if (Delete.erro){
-     res.json(Delete);
-   }else{
-     emitDeleteProduct(id)
-     res.json(Delete);
-   }
- }
+const deleteRealTimeProduct = async (req, res) =>{
+  const id = +req.params.pid 
+  const Delete = await Product.deleteProduct (id);
+  if (Delete.erro){
+    res.json(Delete);
+  }else{
+    emitDeleteProduct(id)
+    res.json(Delete);
+  }
+}
 
 const addRealTimeProduct = async (req, res)=>{
     const body = req.body;
@@ -34,8 +34,6 @@ const addRealTimeProduct = async (req, res)=>{
       emitaddRealtime(add)  
       res.json(add);
     }
-
-
 }
 
 const renderChats =(req, res)=>{
@@ -46,7 +44,7 @@ const renderChats =(req, res)=>{
 module.exports ={
     views,
     RealTimeProduct,
-   deleteRealTimeProduct,
-   addRealTimeProduct,
-   renderChats
+    deleteRealTimeProduct,
+    addRealTimeProduct,
+    renderChats
 }
