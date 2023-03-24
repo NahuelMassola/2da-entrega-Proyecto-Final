@@ -132,9 +132,9 @@ try {
   
   const Cart = await BdCartManager.getCartsId (cid);
     if (!Cart){
-     return res.status(400).json({
-       msg:"Carrito no encontrado",
-       ok:false,
+      return res.status(400).json({
+        msg:"Carrito no encontrado",
+        ok:false,
       })  
   }
   const product = await BdProductManager.getProductId(pid);
@@ -142,16 +142,17 @@ try {
     return res.status(400).json({
       msg:"Producto no encontrado en base de Datos",
       ok:false,
-     })  
- }
-   const findProductTocart = Cart.products.findIndex(({product})=> product._id == pid)
+    })  
+  }
+
+  const findProductTocart = Cart.products.findIndex(({product})=> product._id == pid)
   
   if (findProductTocart === -1){
     return res.status(400).json({
       msg:"Producto no encontrado en el Carrito",
       ok:false,
-     })  
-    }
+    })  
+  }
     Cart.products[findProductTocart].quantity += quantity 
     Cart.priceTotal = CalculateCartTotal(Cart.products)
     await BdCartManager.updateToCart(cid,Cart)
@@ -165,7 +166,7 @@ try {
   return res.status(500).json({
     msg:"error",
     playload:error.message,
-   })
+  })
 }
 
 }

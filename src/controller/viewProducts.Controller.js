@@ -1,4 +1,6 @@
+const { getCartsId } = require("../dao/mongoManager/BdCartManager");
 const BdProductManager = require("../dao/mongoManager/BdProductManager");
+
 
 const viewsBd = async (req, res) => {
     const {limit, page, sort, ...query} = req.query;
@@ -6,6 +8,7 @@ const viewsBd = async (req, res) => {
 
     const product = products.docs.map((product) => ({
         title:product.title,
+        id: product.id,
         description:product.description,
         category:product.category,
         price:product.price,
@@ -14,11 +17,12 @@ const viewsBd = async (req, res) => {
 
     res.render("viewProduct", {
         products: product,
+        cartId: '64128ea254f023c350e2e364',
         totalPage: products.totalPages,
         page:products.page,
         prev: products.hasPrevPage,
         next: products.hasNextPage
-        }   
+        }
 )}
 
 

@@ -1,6 +1,5 @@
 <main id = "main" class="container mt-5">
     <div class="row d-flex d-flex justify-content-between">
-        
         {{#each products}}
             <div class="card col-3 m-2 border border-4" >
             <div class="card-body">
@@ -10,13 +9,14 @@
                 <h2 class="card-text text-center ">$ {{price}}</h2>
                 <p class="card-text text-center ">Cantidad: {{stock}}</p>
                 <div class="d-flex justify-content-center"> 
-                <button type="button" id="agregar" class="btn btn-primary">Agregar</button> 
+                <button  type="button" id="agregar" class="btn btn-primary" onclick="addProductToCart('{{id}}', '{{../cartId}}')">Agregar</button> 
             </div>
             </div>
             </div>
             {{/each}}
     </div>
 </main>
+
 <div class="d-flex justify-content-center ">
             {{#if prev}}
             <button id="prev" >Anterior</button>
@@ -29,7 +29,7 @@
             {{else}}
             <button  id="next" disabled >Siguiente</button>
             {{/if}}
-</div>
+</div> 
             
 <script src="/js/paginate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
